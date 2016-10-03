@@ -1,0 +1,21 @@
+<header>
+    <h1>{{title}}</h1>
+    <h2>{{subtitle}}</h2>
+</header>
+<main>
+    <section *ngFor='let student of studentList'>
+        <h3>{{student.firstname}} {{student.lastname}}</h3>
+        <p> Edit pls : <input [(ngModel)]='student.firstname'></p>
+        <article>
+            <p *ngIf='student.state == 1'>{{state1}}</p>
+            <p *ngIf='student.state == 2'>{{state2}}</p>
+            <p *ngIf='student.state == 3'>{{state3}}</p>
+        </article>
+        <hr>
+    </section>
+    <section>
+        <input [(ngModel)]='newStudent.firstname'>
+        <input [(ngModel)]='newStudent.lastname'>
+        <button (click)='addStudent()' type="submit">CLIQUE CLIQUE CLIQUE</button>
+    </section>
+</main>
