@@ -3,19 +3,17 @@
     <h2>{{subtitle}}</h2>
 </header>
 <main>
+    <section *ngIf='selectedStudent'>
+        <h3>{{editpls}} {{selectedStudent.firstname}} {{selectedStudent.lastname}}</h3>
+        <ul>
+            <li>{{firstname}} <input [(ngModel)]='selectedStudent.firstname'/></li>
+            <li>{{lastname}} <input [(ngModel)]='selectedStudent.lastname'/></li>
+        </ul>
+    </section>
     <section *ngFor='let student of studentList'>
-        <h3>{{student.firstname}} {{student.lastname}}</h3>
-        <p> Edit pls : <input [(ngModel)]='student.firstname'></p>
-        <article>
-            <p *ngIf='student.state == 1'>{{state1}}</p>
-            <p *ngIf='student.state == 2'>{{state2}}</p>
-            <p *ngIf='student.state == 3'>{{state3}}</p>
-        </article>
-        <hr>
+        <show-student [student]='student' (sendOnselect)='onSelect($event)'></show-student>
     </section>
     <section>
-        <input [(ngModel)]='newStudent.firstname'>
-        <input [(ngModel)]='newStudent.lastname'>
-        <button (click)='addStudent()' type="submit">CLIQUE CLIQUE CLIQUE</button>
+        <add-student [newStudent]='newStudent' (sendNewStudentData)='addStudent($event)' ></add-student>
     </section>
 </main>

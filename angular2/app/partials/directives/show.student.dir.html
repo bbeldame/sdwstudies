@@ -1,0 +1,5 @@
+<h3>{{student.firstname}} {{student.lastname}}</h3>
+<p> {{editpls}} <input [(ngModel)]='student.firstname'></p>
+<button (click)='onSelect(student)'>{{editbtn}}</button>
+<p>{{state[student.state - 1]}}</p>
+<hr>
