@@ -1,0 +1,13 @@
+Créer les classes pour un jeu de qcm
+
+Le jeu contient plusieurs questions.
+Chaque question peut contenir un nombre indéterminé de réponses mais une seule bonne.
+Chaque bonne réponse 1 point.
+Chaque mauvais réponse fait perdre 0,5.
+Il est impossible davoir un score negatif.
+
+Créer le code pour créer le jeu puis y jouer.
+A la fin, afficher au joueur son score et un message :
+0 - 10 points : pas top
+10 - 15 points : moyen
+15 - 20 points : bon
