@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require_once('class.player.php');
 require_once('class.question.php');
 
@@ -9,20 +11,54 @@ if (isset($_POST['func']) && is_callable($_POST['func'])) {
 
 function init($post) {
 	$player = new Player($post['name']);
+	$_SESSION['player'] = serialize($player);
 
-	return json_encode(true);
+	return getPlayerInfo();
+}
+
+function getPlayerInfo() {
+	$player = unserialize($_SESSION['player']);
+	$res = array(
+		'name' => $player->getName(),
+		'points' => $player->getPoints()
+	);
+
+	return json_encode($res);
 }
 
 function getQuestion($post) {
-	$string = file_get_contents("./data/data.json");
-	$json = json_decode($string);
-
-	$question = new Question($json[$post['id']]);
+	$question = new Question($post['id']);
+	$_SESSION['question'] = serialize($question);
 	$res = array(
 		'question' => $question->getQuestion(),
-		'good_answer' => $question->getGoodAnswer(),
 		'answers_length' => $question->getAnswersLength(),
 		'answers' => $question->getAnswers()
+	);
+
+	return json_encode($res);
+}
+
+function verifyAnswer($post) {
+	$question = unserialize($_SESSION['question']);
+	$player = unserialize($_SESSION['player']);
+
+	if ($question->getGoodAnswer() == $post['id']) {
+		$player->winPoints();
+		$_SESSION['player'] = serialize($player);
+		return json_encode(1);
+	} else {
+		$player->losePoints();
+		$_SESSION['player'] = serialize($player);
+		return json_encode(0);
+	}
+}
+
+function getPlayerTheEnd() {
+	$player = unserialize($_SESSION['player']);
+	$res = array(
+		'name' => $player->getName(),
+		'points' => $player->getPoints(),
+		'glory' => $player->getGlory()
 	);
 
 	return json_encode($res);

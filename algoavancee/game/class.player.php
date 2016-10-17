@@ -24,4 +24,15 @@ class Player {
 		}
 		return ($this->getPoints());
 	}
+	public function getGlory() {
+		$points = $this->getPoints();
+		
+		if ($points <= 10) {
+			return "pas top";
+		} elseif ($points <= 15) {
+			return "moyen";
+		} elseif ($points <= 20) {
+			return "bon";
+		}
+	}
 }

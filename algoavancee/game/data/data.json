@@ -1,28 +1,28 @@
 [
   {
     "id": 0,
-    "question": "Laborum sit labore sint proident do consectetur et in do dolore laboris tempor dolore veniam. In eu dolor consequat ad ea. Voluptate duis aliqua reprehenderit in Lorem velit ullamco esse. Cillum nisi eiusmod magna aute dolor eiusmod eiusmod ipsum adipisicing magna qui. Cupidatat veniam officia duis do irure mollit amet consequat elit exercitation et. Amet voluptate eu sit anim dolore officia nostrud sit laboris eu ipsum amet ut.\r\n",
+    "question": "Quelle est la capitale de la France ?\r\n",
     "good_answer": 0,
     "answers": [
       {
         "id": 0,
-        "answer": "elit magna labore velit magna"
+        "answer": "Paris"
       },
       {
         "id": 1,
-        "answer": "Lorem deserunt elit voluptate adipisicing"
+        "answer": "Londres"
       },
       {
         "id": 2,
-        "answer": "Lorem aliqua occaecat ea sit"
+        "answer": "Berlin"
       },
       {
         "id": 3,
-        "answer": "est duis consectetur mollit proident"
+        "answer": "Singapour"
       },
       {
         "id": 4,
-        "answer": "laborum ullamco quis ut Lorem"
+        "answer": "Lille"
       }
     ]
   },

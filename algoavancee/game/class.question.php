@@ -25,7 +25,10 @@ class Question {
         return $this->getGoodAnswer() == $id ? 1 : 0;
     }
 
-    public function __construct($data) {
+    public function __construct($id) {
+        $string = file_get_contents("./data/data.json");
+        $json = json_decode($string);
+        $data = $json[intval($id)];
         $this->setGoodAnswer($data->good_answer);
         $this->setQuestion($data->question);
         $this->setAnswers($data->answers);
