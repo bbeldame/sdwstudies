@@ -12,8 +12,8 @@ function usage(){
 }
 
 function launchDocker(){
-	docker stop $name 2>/dev/null
-	docker rm $name 2>/dev/null
+	docker stop $name 2>/dev/null 1>/dev/null
+	docker rm $name 2>/dev/null 1>/dev/null
 	docker run -p $port:80 --name $name -v $path/algoavancee/game/:/var/www/html/ -d php:7.0.12-apache
 }
 
