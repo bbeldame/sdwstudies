@@ -5,9 +5,9 @@ class Question {
     private $_question;
     private $_answers = array();
 
-    private function getGoodAnswer() { return $this->_goodAnswer; }
+    public function getGoodAnswer() { return $this->_goodAnswer; }
     public function getQuestion() { return $this->_question; }
-    private function getAnswers() { return $this->_answers; }
+    public function getAnswers() { return $this->_answers; }
     private function setGoodAnswer($a) { $this->_goodAnswer = $a; }
     private function setQuestion($a) { $this->_question = $a; }
     private function setAnswers($a) { $this->_answers = $a; }
