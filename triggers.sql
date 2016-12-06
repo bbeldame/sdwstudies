@@ -148,7 +148,10 @@ DROP PROCEDURE IF EXISTS display_command_of_customer;
 DELIMITER //
 CREATE PROCEDURE display_command_of_customer(IN customerId INT)
 BEGIN
-	
+	SELECT name, price
+    FROM products p
+    JOIN command c ON c.products_id = p.id
+    WHERE c.customer_id = customerId;
 END;
 //
 DELIMITER ;
