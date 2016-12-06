@@ -117,3 +117,38 @@ BEGIN
 END;
 //
 DELIMITER ;
+
+USE ecommercesite;
+
+DROP PROCEDURE IF EXISTS display_10_most_sells;
+DELIMITER //
+CREATE PROCEDURE display_10_most_sells()
+BEGIN
+	SELECT p.name, count(p.id) cc
+    FROM command c
+    JOIN product p on c.product_id = p.id
+    GROUP BY c.product_id order by cc desc limit 10;
+END;
+//
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS display_10_best_customers;
+DELIMITER //
+CREATE PROCEDURE display_10_best_customers()
+BEGIN
+	SELECT cu.name, count(cu.id) cc
+    FROM command c
+    JOIN customer cu on c.customer_id = cu.id
+    GROUP BY c.customer_id order by cc desc limit 10;
+END;
+//
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS display_command_of_customer;
+DELIMITER //
+CREATE PROCEDURE display_command_of_customer(IN customerId INT)
+BEGIN
+	
+END;
+//
+DELIMITER ;
