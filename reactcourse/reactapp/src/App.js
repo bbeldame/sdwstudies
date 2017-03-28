@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import CatList from './CatList';
 import CatSelected from './CatSelected';
+import CatCreation from './CatCreation';
 import { cats } from './db/cats.json';
 
 class App extends Component {
@@ -26,13 +27,21 @@ class App extends Component {
     });
   }
 
+  addCat(newCat) {
+    console.log(newCat);
+    let cats = this.state.cats;
+
+    cats.unshift(newCat);
+    this.setState({ cats });
+  }
+
   render() {
     return (
       <div className="App">
         <div className="App-header">
           <h2>Welcome to Cat Battle</h2>
         </div>
-
+        <CatCreation addCat={this.addCat.bind(this)}/>
         <CatSelected cats={this.state.cats}/>
         <hr/>
         <CatList cats={this.state.cats} select={this.select.bind(this)}/>
